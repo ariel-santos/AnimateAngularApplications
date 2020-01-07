@@ -7,6 +7,9 @@ import { trigger, state, style } from '@angular/animations';
     trigger('signal', [
       state('go', style ({
         'background-color': 'green'
+      })),
+      state('stop', style ({
+        'background-color': 'red'
       }))
     ])
   ],
@@ -14,10 +17,17 @@ import { trigger, state, style } from '@angular/animations';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  signalState = 'stop';
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  ChangeSignal() {
+    this.signalState = (this.signalState === 'go') ? 'stop' : 'go';
+  }
+
+
 
 }

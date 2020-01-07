@@ -1,3 +1,7 @@
-<div class="square" [@signal]="'go'">
+<div class="square" [@signal]="signalState">
   <p>Hello !</p>
 </div>
+
+<button (click)="ChangeSignal()">
+  change signal
+</button>
