@@ -1,5 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +19,14 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         'height': '100px'
       })),
       // use void not to start animation when load page
-      // transition( 'void => *', animate(100) ),
+      transition( 'void => *', animate(5000, keyframes ([
+        style({ 'transform': 'scale(0)' }),
+        style({ 'transform': 'scale(0.9)' }),
+        style({ 'transform': 'scale(0.1)' }),
+        style({ 'transform': 'scale(0.9)' }),
+        style({ 'transform': 'scale(0.5)' }),
+        style({ 'transform': 'scale(1)' }),
+      ]))),
       // transition( '* => *', animate(500) )
       transition( '* => *', animate('2s 1s cubic-bezier(0.1, 0.03, 0.685, 0.22)') )
       // use cubic-bezier to replace ease-out, more options in https://easings.net
