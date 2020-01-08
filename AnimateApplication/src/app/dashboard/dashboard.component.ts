@@ -19,7 +19,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
         'height': '100px'
       })),
       // use void not to start animation when load page
-      transition( 'void => *', animate(5000, keyframes ([
+      transition( 'void <=> *', animate(1000, keyframes ([
         style({ 'transform': 'scale(0)' }),
         style({ 'transform': 'scale(0.9)' }),
         style({ 'transform': 'scale(0.1)' }),
@@ -28,7 +28,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
         style({ 'transform': 'scale(1)' }),
       ]))),
       // transition( '* => *', animate(500) )
-      transition( '* => *', animate('2s 1s cubic-bezier(0.1, 0.03, 0.685, 0.22)') )
+      transition( 'go <=> stop', animate('2s 1s cubic-bezier(0.1, 0.03, 0.685, 0.22)') )
       // use cubic-bezier to replace ease-out, more options in https://easings.net
     ])
   ],
