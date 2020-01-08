@@ -1,7 +1,11 @@
-<div class="square" [@signal]="signalState">
+<div class="square" [@signal]="signalState" *ngIf="signalShow">
   <p>Hello !</p>
 </div>
 
 <button (click)="ChangeSignal()">
   change signal
+</button>
+
+<button (click)="ShowSignal()">
+  show signal
 </button>

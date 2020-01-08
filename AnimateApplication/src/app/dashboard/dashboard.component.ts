@@ -5,6 +5,9 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   selector: 'app-dashboard',
   animations: [
     trigger('signal', [
+      state('void', style ({
+        'transform': 'translateY(-100%)'
+      })),
       state('go', style ({
         'background-color': 'green',
         'width': '100px',
@@ -15,6 +18,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         'width': '50px',
         'height': '50px'
       })),
+      // use void not to start animation when load page
+      // transition( 'void => *', animate(100) ),
       transition( '* => *', animate(500) )
     ])
   ],
@@ -23,6 +28,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class DashboardComponent implements OnInit {
   signalState = 'stop';
+  signalShow = false;
 
   constructor() { }
 
@@ -31,6 +37,10 @@ export class DashboardComponent implements OnInit {
 
   ChangeSignal() {
     this.signalState = (this.signalState === 'go') ? 'stop' : 'go';
+  }
+
+  ShowSignal() {
+    this.signalShow = !this.signalShow;
   }
 
 
